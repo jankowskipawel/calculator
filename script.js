@@ -1,23 +1,3 @@
-// function add(a,b)
-// {
-//     return a+b;
-// }
-
-// function substract(a,b)
-// {
-//     return a-b;
-// }
-
-// function multiply(a,b)
-// {
-//     return a*b;
-// }
-
-// function divide(a,b)
-// {
-//     return a/b;
-// }
-
 function operate(a,b,operator)
 {
     switch(operator)
@@ -114,3 +94,8 @@ btnMultiply.addEventListener('click', function (){writeOperator("x")});
 btnEquals.addEventListener('click', function (){writeOperator('=')});
 btnClear.addEventListener('click', function(){display.textContent = ''});
 
+// TODO add working dot
+// TODO round big(small) numbers
+// TODO keyboard support
+// TODO better look
+// TODO screen overflow
