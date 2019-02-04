@@ -49,8 +49,12 @@ function isThereSymbol (str)
 {
     for(let i=0; i<str.length; i++)
     {
-        if('+' === str[i] ||'-' === str[i] ||'x' === str[i] ||'÷' === str[i] )
+        if('+' === str[i] ||'-' === str[i] ||'x' === str[i] ||'÷' === str[i])
         {
+            if(i==0) // if number is negative
+            {
+                continue;
+            }
             return [1, str[i], i];
         }
     }
@@ -60,20 +64,34 @@ function isThereSymbol (str)
 function writeOperator(thing)
 {
     displayValue = display.textContent;
-    if(isThereSymbol(displayValue)[0] === 1)
+    if(isThereSymbol(displayValue)[0] === 1 )
     {
-        let firstNumber = parseInt(displayValue.slice(0,isThereSymbol(displayValue)[2]));
-        let secondNumber = parseInt(displayValue.slice(isThereSymbol(displayValue)[2]+1));
+        let firstNumber = parseFloat(displayValue.slice(0,isThereSymbol(displayValue)[2]));
+        let secondNumber = parseFloat(displayValue.slice(isThereSymbol(displayValue)[2]+1));
+        if(!isNaN(secondNumber))
+        {
         let result = operate(firstNumber, secondNumber, isThereSymbol(displayValue)[1]);
         display.textContent = result;
+        }
     }
     else
     {
-        if(thing === '=')
+        if(thing === '=' || displayValue.length <= 0)
         {
             return;
         }
         write(thing);
+    }
+}
+
+function dot()
+{
+    displayValue = display.textContent;
+    let beforeSymbol= displayValue.slice(0,isThereSymbol(displayValue)[2]);
+    let afterSymbol = displayValue.slice(isThereSymbol(displayValue)[2]+1);
+    if(!(beforeSymbol.indexOf(".")>=0) || !(afterSymbol.indexOf(".")>=0))
+    {
+        write('.');
     }
 }
 
@@ -93,8 +111,8 @@ btnDivide.addEventListener('click', function (){writeOperator("÷")});
 btnMultiply.addEventListener('click', function (){writeOperator("x")});
 btnEquals.addEventListener('click', function (){writeOperator('=')});
 btnClear.addEventListener('click', function(){display.textContent = ''});
+btnDot.addEventListener('click', function(){dot()});
 
-// TODO add working dot
 // TODO round big(small) numbers
 // TODO keyboard support
 // TODO better look
