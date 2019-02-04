@@ -64,7 +64,7 @@ function isThereSymbol (str)
 function writeOperator(thing)
 {
     displayValue = display.textContent;
-    if(isThereSymbol(displayValue)[0] === 1 )
+    if(isThereSymbol(displayValue)[0] === 1)
     {
         let firstNumber = parseFloat(displayValue.slice(0,isThereSymbol(displayValue)[2]));
         let secondNumber = parseFloat(displayValue.slice(isThereSymbol(displayValue)[2]+1));
@@ -76,7 +76,7 @@ function writeOperator(thing)
     }
     else
     {
-        if(thing === '=' || displayValue.length <= 0)
+        if(thing === '=' || (displayValue.length == 0 && thing!= '-') || (displayValue.indexOf('-')==0 && displayValue.length == 1))
         {
             return;
         }
