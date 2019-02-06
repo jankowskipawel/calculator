@@ -40,9 +40,17 @@ let displayValue = '';
 
 let display = document.querySelector('#display');
 
+function roundNumber(rnum, rlength) 
+{ // Arguments: number to round, number of decimal places
+    return Math.round(rnum*Math.pow(10,rlength))/Math.pow(10,rlength);
+}
+
 function write(thing)
 {
-    display.textContent += thing;
+    if(display.textContent.length < 25) // dont let to overflow display
+    {
+        display.textContent += thing;
+    }
 }
 
 function isThereSymbol (str)
@@ -71,7 +79,7 @@ function writeOperator(thing)
         if(!isNaN(secondNumber))
         {
         let result = operate(firstNumber, secondNumber, isThereSymbol(displayValue)[1]);
-        display.textContent = result;
+        display.textContent = roundNumber(result, 10);
         }
     }
     else
@@ -176,6 +184,4 @@ window.onkeydown = function(event) {
      }
 }
 
-// TODO round big(small) numbers
 // TODO better look
-// TODO screen overflow
