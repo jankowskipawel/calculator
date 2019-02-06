@@ -113,7 +113,69 @@ btnEquals.addEventListener('click', function (){writeOperator('=')});
 btnClear.addEventListener('click', function(){display.textContent = ''});
 btnDot.addEventListener('click', function(){dot()});
 
+window.onkeydown = function(event) {
+    if (event.keyCode == 48 || event.keyCode == 96) {
+        btn0.click();
+     }
+     if (event.keyCode == 49 || event.keyCode == 97) {
+        btn1.click();
+     }
+     if (event.keyCode == 50 || event.keyCode == 98) {
+        btn2.click();
+     }
+     if (event.keyCode == 51 || event.keyCode == 99) {
+        btn3.click();
+     }
+     if (event.keyCode == 52 || event.keyCode == 100) {
+        btn4.click();
+     }
+     if (event.keyCode == 53 || event.keyCode == 101) {
+        btn5.click();
+     }
+     if (event.keyCode == 54 || event.keyCode == 102) {
+        btn6.click();
+     }
+     if (event.keyCode == 55 || event.keyCode == 103) {
+        btn7.click();
+     }
+     if (event.keyCode == 56 || event.keyCode == 104) {
+        btn8.click();
+     }
+     if (event.keyCode == 57 || event.keyCode == 105) {
+        btn9.click();
+     }
+     if (event.keyCode == 8) {
+        display.textContent = display.textContent.slice(0, -1);
+     }
+     if (event.keyCode == 27) {
+        btnClear.click();
+     }
+     if (event.keyCode == 189  || event.keyCode == 109) {
+        btnSubstract.click();
+     }
+     if (event.keyCode == 187 || event.keyCode == 13) {
+        btnEquals.click();
+     }
+     if (event.keyCode == 190 || event.keyCode == 110) {
+        btnDot.click();
+     }
+     if (event.keyCode == 191 || event.keyCode == 111) {
+        btnDivide.click();
+     }
+     if (event.keyCode == 88  || event.keyCode == 106) {
+        btnMultiply.click();
+     }
+ }
+
+ window.onkeypress = function(event) {
+    if (event.keyCode == 43  || event.keyCode == 107) {
+        btnAdd.click();
+     }
+     if (event.keyCode == 42) {
+        btnMultiply.click();
+     }
+}
+
 // TODO round big(small) numbers
-// TODO keyboard support
 // TODO better look
 // TODO screen overflow
