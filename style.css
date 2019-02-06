@@ -1,29 +1,124 @@
 button {
     width: 50px;
     height: 50px;
-    margin-top: 5px;
     font-weight: bold;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 3px;
+    border: black;
+    border-radius: 5px;
 }
 
-.buttons {
-    width: 250px;
-}
-
-.clear {
-    width: 212px;
+button:focus {
+    outline: none;
 }
 
 .display {
-    width: 210px;
+    background-color: white;
+}
+
+.number:hover {
+    background-color: rgba(128, 128, 128, 0.281);
+    border: 1px black solid;
+    -webkit-transition: background-color .3s; /* Safari */
+    transition: background-color .3s;
+}
+
+.clear:hover {
+    background-color: rgba(255, 0, 0, 0.801);
+    border: 1px black solid;
+    color: white;
+    -webkit-transition: background-color .4s; /* Safari */
+    transition: background-color .4s;
+    -webkit-transition: color .2s; /* Safari */
+    transition: color .2s;
+}
+
+.backspace:hover {
+    background-color: rgba(255, 166, 0, 0.788);
+    border: 1px black solid;
+    -webkit-transition: background-color .3s; /* Safari */
+    transition: background-color .3s;
+}
+
+.operator:hover {
+    background-color: rgba(44, 44, 44, 0.863);
+    border: 1px white solid;
+    color: white;
+    -webkit-transition: background-color .3s; /* Safari */
+    transition: background-color .3s;
+}
+
+.dot:hover {
+    background-color: rgba(82, 82, 82, 0.863);
+    border: 1px white solid;
+    color: white;
+    -webkit-transition: background-color .3s; /* Safari */
+    transition: background-color .3s;
+}
+
+.equals:hover {
+    background-color: rgba(0, 60, 255, 0.959);
+    border: 1px white solid;
+    color: white;
+    -webkit-transition: background-color .3s; /* Safari */
+    transition: background-color .3s;
+}
+
+.operator {
+    background-color: rgba(80, 80, 80, 0.61);
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.dot {
+    background-color: rgb(224, 224, 224);
+    color: black;
+}
+
+.equals {
+    background-color: rgba(47, 96, 255, 0.801);
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.buttons {
+    width: 236px;
+}
+
+.deleting {
+    width: 110px;
+}
+
+.clear{
+    background-color: rgba(255, 166, 0, 0.788);
+}
+
+.backspace {
+    background-color: rgba(255, 166, 0, 0.445);
+}
+
+.display {
+    margin-left: 3px;
+    width: 228px;
     height: 50px;
     position: relative;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 .display p {
     position:absolute;
     bottom: 0;
     right: 2px;
+}
+
+.calculator {
+    margin: 10% auto;
+    width: 250px;
+    height: 350px;
+}
+
+html {
+    background-image: linear-gradient(white, grey);
+    background-size: cover;
+    height: 100%; 
 }

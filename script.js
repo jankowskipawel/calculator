@@ -35,6 +35,7 @@ let btnDivide = document.querySelector(".divide");
 let btnEquals = document.querySelector(".equals");
 let btnClear = document.querySelector(".clear");
 let btnDot = document.querySelector(".dot");
+let btnBackspace = document.querySelector(".backspace");
 
 let displayValue = '';
 
@@ -47,7 +48,7 @@ function roundNumber(rnum, rlength)
 
 function write(thing)
 {
-    if(display.textContent.length < 25) // dont let to overflow display
+    if(display.textContent.length < 27) // dont let to overflow display
     {
         display.textContent += thing;
     }
@@ -120,6 +121,7 @@ btnMultiply.addEventListener('click', function (){writeOperator("x")});
 btnEquals.addEventListener('click', function (){writeOperator('=')});
 btnClear.addEventListener('click', function(){display.textContent = ''});
 btnDot.addEventListener('click', function(){dot()});
+btnBackspace.addEventListener('click', function(){display.textContent = display.textContent.slice(0, -1);});
 
 window.onkeydown = function(event) {
     if (event.keyCode == 48 || event.keyCode == 96) {
@@ -153,7 +155,7 @@ window.onkeydown = function(event) {
         btn9.click();
      }
      if (event.keyCode == 8) {
-        display.textContent = display.textContent.slice(0, -1);
+        btnBackspace.click();
      }
      if (event.keyCode == 27) {
         btnClear.click();
@@ -183,5 +185,3 @@ window.onkeydown = function(event) {
         btnMultiply.click();
      }
 }
-
-// TODO better look
