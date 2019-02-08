@@ -16,30 +16,69 @@ function operate(a,b,operator)
     }
 }
 
-
-
-let btn0 = document.querySelector(".zero");
-let btn1 = document.querySelector(".one");
-let btn2 = document.querySelector(".two");
-let btn3 = document.querySelector(".three");
-let btn4 = document.querySelector(".four");
-let btn5 = document.querySelector(".five");
-let btn6 = document.querySelector(".six");
-let btn7 = document.querySelector(".seven");
-let btn8 = document.querySelector(".eight");
-let btn9 = document.querySelector(".nine");
-let btnAdd = document.querySelector(".add");
-let btnSubstract = document.querySelector(".substract");
-let btnMultiply = document.querySelector(".multiply");
-let btnDivide = document.querySelector(".divide");
-let btnEquals = document.querySelector(".equals");
-let btnClear = document.querySelector(".clear");
-let btnDot = document.querySelector(".dot");
-let btnBackspace = document.querySelector(".backspace");
+var btn0 = document.querySelector(".zero");
+var btn1 = document.querySelector(".one");
+var btn2 = document.querySelector(".two");
+var btn3 = document.querySelector(".three");
+var btn4 = document.querySelector(".four");
+var btn5 = document.querySelector(".five");
+var btn6 = document.querySelector(".six");
+var btn7 = document.querySelector(".seven");
+var btn8 = document.querySelector(".eight");
+var btn9 = document.querySelector(".nine");
+var btnAdd = document.querySelector(".add");
+var btnSubstract = document.querySelector(".substract");
+var btnMultiply = document.querySelector(".multiply");
+var btnDivide = document.querySelector(".divide");
+var btnEquals = document.querySelector(".equals");
+var btnClear = document.querySelector(".clear");
+var btnDot = document.querySelector(".dot");
+var btnBackspace = document.querySelector(".backspace");
 
 let displayValue = '';
 
 let display = document.querySelector('#display');
+
+function clickButton(thing)
+{
+    switch(thing)
+    {
+        case '÷':
+            btnDivide.classList.add('clickedOperator');
+            setTimeout(function(){btnDivide.classList.remove('clickedOperator');}, 200);
+            return;
+        case '+':
+            btnAdd.classList.add('clickedOperator');
+            setTimeout(function(){btnAdd.classList.remove('clickedOperator');}, 200);
+            return;
+        case '-':
+            btnSubstract.classList.add('clickedOperator');
+            setTimeout(function(){btnSubstract.classList.remove('clickedOperator');}, 200);
+            return;
+        case 'x':
+            btnMultiply.classList.add('clickedOperator');
+            setTimeout(function(){btnMultiply.classList.remove('clickedOperator');}, 200);
+            return;
+        case '.':
+            btnDot.classList.add('clickedDot');
+            setTimeout(function(){btnDot.classList.remove('clickedDot');}, 200);
+            return;
+        case '=':
+            btnEquals.classList.add('clickedEquals');
+            setTimeout(function(){btnEquals.classList.remove('clickedEquals');}, 200);
+            return;
+        case 'bckspc':
+            btnBackspace.classList.add('clickedBackspace');
+            setTimeout(function(){btnBackspace.classList.remove('clickedBackspace');}, 200);
+            return;
+        case 'clr':
+            btnClear.classList.add('clickedClear');
+            setTimeout(function(){btnClear.classList.remove('clickedClear');}, 200);
+            return;
+    }
+    window[`btn${thing}`].classList.add('clicked');
+    setTimeout(function(){window[`btn${thing}`].classList.remove('clicked');}, 200);
+}
 
 function roundNumber(rnum, rlength) 
 { // Arguments: number to round, number of decimal places
@@ -52,6 +91,7 @@ function write(thing)
     {
         display.textContent += thing;
     }
+    clickButton(thing);
 }
 
 function isThereSymbol (str)
@@ -148,7 +188,7 @@ window.onkeydown = function(event) {
      if (event.keyCode == 55 || event.keyCode == 103) {
         btn7.click();
      }
-     if (event.keyCode == 56 || event.keyCode == 104) {
+     if (event.keyCode == 104) {
         btn8.click();
      }
      if (event.keyCode == 57 || event.keyCode == 105) {
@@ -156,14 +196,16 @@ window.onkeydown = function(event) {
      }
      if (event.keyCode == 8) {
         btnBackspace.click();
+        clickButton('bckspc');
      }
      if (event.keyCode == 27) {
         btnClear.click();
+        clickButton('clr');
      }
      if (event.keyCode == 189  || event.keyCode == 109) {
         btnSubstract.click();
      }
-     if (event.keyCode == 187 || event.keyCode == 13) {
+     if (event.keyCode == 13) {
         btnEquals.click();
      }
      if (event.keyCode == 190 || event.keyCode == 110) {
@@ -175,13 +217,22 @@ window.onkeydown = function(event) {
      if (event.keyCode == 88  || event.keyCode == 106) {
         btnMultiply.click();
      }
+     
  }
 
  window.onkeypress = function(event) {
     if (event.keyCode == 43  || event.keyCode == 107) {
         btnAdd.click();
      }
+     if (event.keyCode == 56) {
+        btn8.click();
+     }
      if (event.keyCode == 42) {
         btnMultiply.click();
      }
+     if (event.keyCode == 61) {
+        btnEquals.click();
+        clickButton('=');
+     }
+     console.log(event.keyCode)
 }

@@ -65,6 +65,18 @@ button:focus {
     transition: background-color .3s;
 }
 
+
+
+.clicked {
+    background-color: rgba(128, 128, 128, 0.281);
+    border: 1px black solid;
+    transition: background-color .3s;
+    -webkit-transition: background-color .3s;
+    transition: border .2s;
+    -webkit-transition: border .2s;
+    
+}
+
 .operator {
     background-color: rgba(80, 80, 80, 0.61);
     color: rgba(255, 255, 255, 0.89);
@@ -121,4 +133,43 @@ html {
     background-image: linear-gradient(white, grey);
     background-size: cover;
     height: 100%; 
+}
+
+.clickedOperator {
+    background-color: rgba(44, 44, 44, 0.863);
+    border: 1px white solid;
+    color: white;
+    transition: border .2s;
+    -webkit-transition: border .2s;
+}
+
+.clickedDot {
+    background-color: rgba(82, 82, 82, 0.863);
+    border: 1px white solid;
+    color: white;
+    transition: border .2s;
+    -webkit-transition: border .2s;
+}
+
+.clickedEquals {
+    background-color: rgba(0, 60, 255, 0.959);
+    border: 1px white solid;
+    color: white;
+    transition: border .2s;
+    -webkit-transition: border .2s;
+}
+
+.clickedClear {
+    background-color: rgba(255, 0, 0, 0.801);
+    border: 1px black solid;
+    color: white;
+    transition: border .2s;
+    -webkit-transition: border .2s;
+}
+
+.clickedBackspace {
+    background-color: rgba(255, 166, 0, 0.788);
+    border: 1px black solid;
+    transition: border .2s;
+    -webkit-transition: border .2s;
 }
