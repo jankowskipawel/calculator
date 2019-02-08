@@ -7,6 +7,7 @@ button {
     margin: 3px;
     border: black;
     border-radius: 5px;
+    touch-action: manipulation;
 }
 
 button:focus {
