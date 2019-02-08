@@ -234,5 +234,4 @@ window.onkeydown = function(event) {
         btnEquals.click();
         clickButton('=');
      }
-     console.log(event.keyCode)
 }
