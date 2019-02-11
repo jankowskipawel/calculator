@@ -119,12 +119,17 @@ function writeOperator(thing)
         let secondNumber = parseFloat(displayValue.slice(isThereSymbol(displayValue)[2]+1));
         if(!isNaN(secondNumber))
         {
-        let result = operate(firstNumber, secondNumber, isThereSymbol(displayValue)[1]);
-        display.textContent = roundNumber(result, 10);
+            let result = operate(firstNumber, secondNumber, isThereSymbol(displayValue)[1]);
+            display.textContent = roundNumber(result, 10);
+        }
+        else if(thing=='-' && isThereSymbol(displayValue)[1] == 'x' && displayValue.slice(-1)!=='-')
+        {
+            write(thing);
         }
     }
     else
     {
+        
         if(thing === '=' || (displayValue.length == 0 && thing!= '-') || (displayValue.indexOf('-')==0 && displayValue.length == 1))
         {
             return;
@@ -207,6 +212,7 @@ window.onkeydown = function(event) {
      }
      if (event.keyCode == 13) {
         btnEquals.click();
+        clickButton('=');
      }
      if (event.keyCode == 190 || event.keyCode == 110) {
         btnDot.click();
